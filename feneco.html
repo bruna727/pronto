@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feneco - Acervo Animal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e4d7;
+			.categories span {
+        margin-right: 35px; /* Ajuste o valor conforme necessário */
+    }
+
+.logo {
+    font-size: 2em; /* Ajuste o tamanho da logo */
+    font-weight: bold;
+    color: white; /* Cor do texto */
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Garante que a cor da logo seja herdada */
+}
+
+/* Container da barra de pesquisa */
+.search-container {
+    position: relative;
+    left: 12px; /* Move a barra de pesquisa 30px para a direita */
+    /* right: 30px;  Move para a esquerda se desejar */
+}
+
+/* Barra de navegação */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #d98e04;
+    padding: 30px 20px;
+    color: white;
+}
+
+.categories span:last-child {
+    margin-right: 0; /* Remove o espaçamento após o último item */
+}
+
+.navbar input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #d98e04;
+}
+
+/* Container da barra de pesquisa */
+.search-container {
+    position: relative;
+    flex-grow: 1; /* Faz a barra de pesquisa ocupar todo o espaço disponível */
+    max-width: 500px; /* Limita o tamanho da barra de pesquisa */
+}
+
+.navbar .logo {
+    margin-right: 505px; /* Espaço entre o logo e a barra de pesquisa */
+}
+
+/* Barra de navegação */
+.navbar, .categories {
+    background-color: #d98e04;
+    color: white;
+    padding: 33px;
+    text-align: center;
+    font-weight: bold;
+}
+        
+
+.search-container {
+    position: relative;
+}
+
+.navbar input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #d98e04;
+}
+
+/* Container da barra de pesquisa */
+.search-container {
+    position: relative;
+    flex-grow: 1; /* Faz a barra de pesquisa ocupar todo o espaço disponível */
+    max-width: 500px; /* Limita o tamanho da barra de pesquisa */
+}
+
+.navbar .logo {
+    margin-right: 505px; /* Espaço entre o logo e a barra de pesquisa */
+}
+
+/* Barra de navegação */
+.navbar, .categories {
+    background-color: #d98e04;
+    color: white;
+    padding: 33px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Menu de categorias */
+        .categories {
+            display: flex;
+            justify-content: center;
+            background-color: #d98e04;
+            padding: 30px;
+            position: relative;
+            z-index: 3;
+        }
+
+/* Estilo das categorias principais (visíveis) */
+.categories a {
+    color: white; /* Cor branca para as categorias principais */
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Estilo do dropdown para subcategorias */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF; /* Cor de fundo do dropdown */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 4;
+}
+
+.dropdown-content a {
+    color: #000000; /* Cor preta para as subcategorias */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+.category:hover .dropdown-content {
+    display: block;
+}
+
+/* Barra de navegação */
+        .navbar, .categories {
+            background-color: #d98e04;
+            color: white;
+            padding: 33px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        .back-button {
+            margin: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            color: #d98e04;
+            font-weight: bold;
+        }
+
+        /* Container da página */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título principal */
+        h1 {
+            font-family: Arial, sans-serif;
+            color: #d98e04;
+            font-size: 2em;
+        }
+
+        /* Seção de detalhes */
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .main-image {
+            width: 500px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        /* Estilos para informações adicionais */
+        .info p {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .info span {
+            font-weight: normal;
+        }
+
+        .check-icon {
+            color: green;
+        }
+
+/* Seções "Visão Geral" e "Cuidados" */
+        .overview-section h2, .care-section h2 {
+            color: #d98e04;
+            margin-top: 20px;
+        }
+
+        /* Seção de cuidados */
+        .care-section h2 {
+            color: #d98e04;
+            margin-top: 20px;
+        }
+
+        .care-section ul {
+            padding-left: 20px;
+        }
+
+        .care-section li {
+            margin: 5px 0;
+        }
+    </style>
+	
+	<style>
+    @media (max-width: 800px) {
+        
+    /* Ajustes para o banner */
+    .banner-images img {
+        width: 100%; /* As imagens devem se ajustar ao tamanho da tela */
+    }
+    .title {
+        margin-left: 95px;  /* Move o título para a esquerda */
+        text-align: left;    /* Alinha o texto à esquerda */
+    }
+
+    /* Barra de navegação */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .navbar input[type="text"] {
+        width: 70%;
+        margin-top: 10px;
+        padding: 10px;
+        margin-left: -43px;
+    }
+
+    .search-container {
+        margin-left: 1;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .user-options {
+        margin-top: 1px;
+        display: block;
+    }
+
+    /* Menu de categorias */
+    .categories {
+        flex-direction: column;
+        padding: 5px 2;
+    }
+
+    .categories a {
+        margin: 5px 0;
+        font-size: 1.2em;
+    }
+
+        /* Ajusta o conteúdo principal */
+        .details {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 100%; /* Ocupa toda a largura disponível */
+            max-width: 370px; /* Define um limite máximo */
+			margin-left: -5px; /* Ajuste este valor para mover para a esquerda */
+        }
+
+        .thumbnail-container {
+            justify-content: center;
+        }
+
+        .thumbnail {
+            width: 70px; /* Reduz o tamanho das miniaturas */
+            height: 70px;
+        }
+
+        /* Ajusta a seção de informações */
+        .info {
+            text-align: center;
+        }
+
+        /* Ajusta os textos */
+        h1 {
+            font-size: 1.8em;
+        }
+
+        .care-section h2, .overview-section h2 {
+            font-size: 1.5em;
+        }
+
+        .info p {
+            font-size: 0.9em;
+        }
+
+.info p, .care-section p, .overview-section p {
+        max-width: 95%;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-size: 0.95em;
+        text-align: justify;
+    }
+        /* Ajusta o footer */
+        .footer {
+            padding: 20px;
+            font-size: 0.9em;
+        }
+		
+		.logo {
+        margin-left: 510px; /* Altere aqui */
+    }
+	
+	html, body {
+    overflow-x: hidden; /* Remove o scroll horizontal */
+    max-width: 100%;    /* Impede que a página fique maior que a tela */
+}
+</style>
+
+    <script>
+        function changeMainImage(src) {
+            document.querySelector('.main-image').src = src;
+        }
+    </script>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <div class="navbar">
+            <a href="index.html">
+    <div class="logo">ACERVO ANIMAL</div>
+</a>
+            <div class="search-container">
+                <input type="text" placeholder="Pesquise um animal">
+                <span class="search-icon"></span>
+            </div>
+        </div>
+		
+				<!-- Menu de categorias -->
+        <nav class="categories">
+            <div class="category">
+               <a href="#">Mamíferos</a> 
+               <div class="dropdown-content"> <a href="#">Furãos</a> <a href="#">Ouriços</a> <a href="#">Hamsters</a> <a href="#">Chinchilas</a> <a href="raposas.html" style="color: #228B22; text-decoration: none; border-bottom: 3px solid #228B22;">Raposas</a> <a href="#">Morcegos</a> <a href="#">Primatas</a> <a href="#">Coelhos</a> <a href="#">Ratos</a> <a href="#">Petauro-do-açúcar</a> <a href="#">Saruê</a> <a href="#">Guaxinim</a> </div>
+            </div>
+            <div class="category">
+               <a href="#">Aves</a> 
+               <div class="dropdown-content"> <a href="#">Canários</a> <a href="#">Papagaios</a> <a href="#">Patos</a> <a href="#">Falcãos</a> <a href="#">Corujas</a> <a href="#">Galos e galinhas</a> <a href="#">Araras</a> <a href="#">Calopsitas</a> </div>
+            </div>
+            <div class="category">
+               <a href="#">Répteis</a> 
+               <div class="dropdown-content"> <a href="#">Iguanas</a> <a href="#">Camaleãos</a> <a href="#">Cobras</a> <a href="#">Tartarugas</a> <a href="#">Jabutis</a> <a href="#">Cágados</a> <a href="#">Lagartos</a> </div>
+            </div>
+            <div class="category">
+    <a href="#">Anfíbios</a>
+    <div class="dropdown-content">
+      <a href="#">Salamandras</a>
+      <a href="#">Sapos</a>
+      <a href="#">Rãs</a>
+	  <a href="#">Axolotes</a>
+      </div>
+  </div>
+  <div class="category">
+    <a href="#">Peixes</a>
+    <div class="dropdown-content">
+      <a href="#">Betta</a>
+      <a href="#">Guppy</a>
+      <a href="#">Peixe-palhaço</a>
+	  <a href="#">Limpa-vidro</a>
+      <a href="#">Tetra</a>
+      <a href="#">Peixe Dourado</a>
+	  <a href="#">Coridora</a>
+      <a href="#">Molinésia</a>
+      <a href="#">Donzela</a>
+	    <a href="#">Goby</a>
+      <a href="#">Peixe-cirurgião</a>
+      <a href="#">Baiacu</a>
+    </div>
+  </div>
+  <div class="category">
+    <a href="#">Insetos e Aracnídeos</a>
+    <div class="dropdown-content">
+      <a href="#">Tarântulas</a>
+      <a href="#">Escorpiões</a>
+      <a href="#">Louva-a-deus</a>
+	  <a href="#">Borboletas</a>
+      <a href="#">Besouros</a>
+      <a href="#">Baratas</a>
+	  <a href="#">Mariposas</a>
+      <a href="#">Formigas</a>
+      <a href="#">Gafanhotos</a>
+	  <a href="#">Aranhas</a>
+	  <a href="#">Abelhas</a>
+      <a href="#">Joaninhas</a>
+      <a href="#">Grilos</a>
+    </div>
+  </div>
+</nav>
+    </header>
+
+
+    <!-- Botão de Voltar -->
+    <div class="back-button">
+        <a href="raposas.html">← VOLTAR</a>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Seção de detalhes da Raposa -->
+        <div class="details">
+            <img class="main-image" src="MJS_5861-Daisy_3-1.jpg" alt="Arara Azul Grande">
+            <div class="info">
+                <h1>Feneco</h1>
+                <p style="margin-bottom: 50px;">Legalidade: <span style="font-weight: normal;">Permitido no Brasil desde que seja obtida uma permissão do IBAMA ou por criadouro/loja aprovado pelo IBAMA</span> ✔</p>
+<p style="margin-bottom: 50px;">Faixa de preço: <span style="font-weight: normal;">US$4.000,00</span></p>
+<p>Sugestões de criadouros/lojas: <span style="font-weight: normal;">Atualmente não existem criadouros ou lojas com permissão do IBAMA para comercializar este animal no Brasil</a></p>
+                <!-- Miniaturas -->
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="MJS_5861-Daisy_3-1.jpg" alt="Miniatura Principal" onclick="changeMainImage(this.src)">
+                    <img class="thumbnail" src="fennec_fox_0.jpg" alt="Miniatura 1" onclick="changeMainImage(this.src)">
+                    <img class="thumbnail" src="phpThumb_generated_thumbnail.jpeg" alt="Miniatura 2" onclick="changeMainImage(this.src)">
+                </div>
+            </div>
+        </div>
+
+    <!-- Seção Visão Geral -->
+    <div class="overview-section">
+        <h2>Visão Geral:</h2>
+        <p>As raposas-feneco podem ser pets fascinantes, mas não são adequadas para todos. Elas são animais exóticos, independentes e com instintos selvagens, exigindo cuidados específicos e um ambiente bem preparado. Embora sejam pequenas e incrivelmente carismáticas, sua energia, necessidade de espaço para explorar e cavar, e seu comportamento noturno podem ser desafiadores. Além disso, sua legalidade como animal de estimação varia dependendo da região, e elas exigem acompanhamento veterinário especializado. Para quem está disposto a investir tempo, paciência e recursos, os fenecos podem ser companheiros únicos, mas não substituem a experiência de possuir um pet mais tradicional.</p>
+    </div>
+
+    <!-- Seção de cuidados -->
+        <div class="care-section">
+            <h2>Cuidados:</h2>
+            <p>Cuidar de uma raposa-feneco (Vulpes zerda) requer atenção especial, pois são animais exóticos, ágeis e curiosos. Aqui estão algumas dicas para garantir o bem-estar dela:</p>
+
+            <h3>Habitat</h3>
+            <ul>
+                <li>Espaço Adequado: Proporcione um ambiente espaçoso, com áreas internas e externas seguras. O recinto deve ter pelo menos 2 metros quadrados por animal, com locais para escalar, esconder-se e correr..</li>
+                <li>Enriquecimento Ambiental: Inclua tocas, brinquedos interativos e superfícies variadas (areia, terra e grama). As raposas-feneco adoram cavar e explorar.</li>
+            </ul>
+
+            <h3>Alimentação</h3>
+            <ul>
+                <li>Dieta Balanceada: A dieta deve ser composta por alimentos ricos em proteínas, como carne magra, insetos (grilos, larvas) e ovos, complementados com frutas e vegetais..</li>
+                <li>Água Fresca: Disponibilize água limpa e fresca diariamente..</li>
+            </ul>
+
+            <h3>Saúde e Bem-Estar</h3>
+            <ul>
+                <li>Veterinário: Consulte regularmente um veterinário especializado em animais exóticos..</li>
+                <li>Higiene: Limpe o recinto frequentemente, trocando a forração e garantindo que os alimentos não fiquem expostos por muito tempo..</li>
+            </ul>
+
+            <h3>Socialização e interação</h3>
+            <ul>
+                <li>Sociabilidade: Embora sejam mais independentes, as raposas-feneco se beneficiam de interações regulares com seus cuidadores. Reserve tempo para brincar e observar o comportamento delas..</li>
+                <li>Treinamento: Utilize reforço positivo para ensinar comandos simples e ajudar a criar um vínculo mais forte.</li>
+            </ul>
+
+            <h3>Temperatura e Luz</h3>
+            <ul>
+                <li>Ambiente Confortável: Mantenha a temperatura entre 20°C e 30°C, evitando ambientes muito úmidos ou frios. As raposas-feneco são adaptadas a climas áridos e quentes..</li>
+                <li>Luz Natural: Permita acesso à luz natural, mas assegure que haja áreas sombreadas para que possam se proteger do calor excessivo.</li>
+            </ul>
+
+            <h3>Atenção e Paciência</h3>
+            <ul>
+                <li>Comportamento: Fique atento a mudanças de comportamento, pois podem indicar estresse ou problemas de saúde..</li>
+                <li>Paciência: Raposas-feneco podem levar tempo para se adaptar a um novo ambiente ou rotina. Seja paciente e respeite o ritmo do animal..</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+         <p>&copy; 2024 Acervo Animal. Todos os direitos reservados.</p>
+      </footer>
+      <style> /* Estilos do rodapé */ .footer { background-color: #f5be58; /* Cor de fundo do rodapé */ color: white; /* Cor do texto */ text-align: center; /* Centraliza o texto */ padding: 50px 0; /* Espaçamento interno */ position: relative; /* Para posicionamento */ bottom: 0; /* Fixa na parte inferior */ width: 100%; /* Largura total */ margin-top: 20px; /* Espaço acima do rodapé */ } .footer p { margin: 0; /* Remove margens do parágrafo */ font-size: 1em; /* Tamanho da fonte */ } /* Estilos para o parágrafo "MAIS PESQUISADOS" */ .mais-pesquisados { font-family: Arial, sans-serif; /* Fonte Arial */ font-size: 3.5em; /* Tamanho da fonte */ color: #d98e04; /* Cor do texto */ text-align: center; /* Centraliza o texto */ margin: 20px 0; /* Espaçamento acima e abaixo */ font-weight: bold; /* Deixa a fonte mais "gordinha" */ } </style>
